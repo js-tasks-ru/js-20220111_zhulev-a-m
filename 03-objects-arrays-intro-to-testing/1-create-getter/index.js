@@ -5,4 +5,9 @@
  */
 export function createGetter(path) {
 
+  const splitPath = path.split('.');
+
+  return (resultObj) => {
+    return splitPath.reduce((accumulator, key) => accumulator ? accumulator[key] : accumulator, resultObj);
+  };
 }
